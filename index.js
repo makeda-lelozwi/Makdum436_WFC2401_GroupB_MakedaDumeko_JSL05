@@ -1,6 +1,9 @@
 // Array of song objects. Add at least 5 songs with title, artist, and genre properties.
 const songs = [
-    { title: "Hooked on a Feeling", artist: "Blue Swede", genre: "Pop" },
+    { title: "Hooked on a Feeling", 
+    artist: "Blue Swede", 
+    genre: "Pop" },
+    
     { title: "Moonage Daydream", artist: "David Bowie", genre: "Rock" },
     { title: "I Want You Back", artist: "The Jackson 5", genre: "Pop" },
     { title: "Spirit in the Sky", artist: "Norman Greenbaum", genre: "Rock" },
@@ -22,14 +25,19 @@ const guardians = {
     "Drax": "Pop",
     "Rocket": "Rock",
     "Groot": "R&B",
-    // Add preferences for Drax, Rocket, and Groot
+    
 };
 
 // Function to generate playlist based on preferred genre
 function generatePlaylist(guardians, songs) {
     // Use the map() function to create playlists for each Guardian
-    // Your code here
-}
+    return Object.keys(songs).reduce((acc, guardian) => {
+      const preferredGenre = song[guardian].toLowerCase();
+      const playlist = array.filter(song => song.grenre.toLowerCase() === preferredGenre);
+      acc[guardian] = playlist;
+      return acc;
+    })
+};
 
 // Call generatePlaylist and display the playlists for each Guardian
 generatePlaylist(guardians, songs);
