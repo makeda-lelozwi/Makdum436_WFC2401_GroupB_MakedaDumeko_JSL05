@@ -29,17 +29,60 @@ const guardians = {
 };
 
 // Function to generate playlist based on preferred genre
-function generatePlaylist(guardians, songs) {
-    // Use the map() function to create playlists for each Guardian
-    return Object.keys(songs).reduce((acc, guardian) => {
-      const preferredGenre = song[guardian].toLowerCase();
-      const playlist = array.filter(song => song.grenre.toLowerCase() === preferredGenre);
+function generatePlaylist(array, preferences) {
+    return Object.keys(preferences).reduce((acc, guardian) => {
+      const preferredGenre = preferences[guardian].toLowerCase();
+      const playlist = array.filter(song => song.grenre === preferredGenre);
       acc[guardian] = playlist;
       return acc;
-    })
-};
+    }
+    );
+}
 
-// Call generatePlaylist and display the playlists for each Guardian
-generatePlaylist(guardians, songs);
+
+const playlists = generatePlaylist(songs, guardians);
+const card = document.getElementById("playlists");
+
+
+Object.keys(playlists).map(guardian => {
+  const playlist = playlists[guardian];
+  const guardianElement = document.createElement("div");
+  guardianElement.className = "playlist"
+  guardianElement.innerHTML=`<h2>${guardian}'s Playlist:</h2>`;
+
+  //creating a new div for each guardian's playlist with custom class for styling
+  const listDiv = document.createElement("div");
+  listDiv.classList.add("playlist-div");
+
+  const listElement = document.createElement("ul");
+  
+  //Apply styling to the ul element 
+  listElement.style.listStyleType = "none";
+  listElement.style.padding = "0";
+  listElement.style.margin = "0";
+
+  playlist.forEach(song => {
+    const listItem = document.createElement("li");
+    listItem.classList.add("song");
+
+    const songTitle = document.createElement("span");
+    songTitle.classList.add("song-title");
+    songTitle.textContent = `${song.title}`;
+
+    listItem.appendChild(songTitle);
+
+    const songArtist = document.createElement("span");
+    songArtist.classList.add("song-artist");
+    songArtist.textContent = `${song.artist}`;
+
+    listItem.appendChild(songArtist);
+
+    listElement.appendChild(listItem);
+  })
+
+  listDiv.appendChild(listElement);
+  guardianElement.appendChild(listDiv);
+  card.appendChild(g7uardianElement);
+})
 
 
