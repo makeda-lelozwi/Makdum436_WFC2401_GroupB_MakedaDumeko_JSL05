@@ -1,0 +1,35 @@
+
+This generateFunction() code block defines a function called generatePlaylist 
+that takes two parameters: an array of songs (array) and an 
+object representing the preferences of different 
+guardians (preferences). The function returns an object where
+each key 
+corresponds to a guardian's name, and the value is an 
+array of songs filtered based on that guardian's 
+preferred genre.
+
+
+How reduce() works:
+
+arr.reduce(callback[, initialValue])
+
+The callback method takes: 
+
+acc: the value is remembered throughout each iteration of 
+    the method and ultimately becomes the final returned value
+
+AND 
+
+currentValue: the current element being processed in the array
+
+if we want to convert the following array: 
+const letters = ['a', 'b', 'c'] into an object we say:
+
+const obj = letters.reduce(accumulator, currentValue) => {
+  accumulator[currentValue] = currentValue;
+  return accumulator;
+}, {});
+
+console.log(obj);
+
+
