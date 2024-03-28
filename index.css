@@ -31,6 +31,7 @@ h1 {
     font-weight: bold;
     color: #FFD700; /* Gold color for song titles */
     text-decoration: underline; /* Underline effect for song titles */
+    cursor: pointer;
 }
 
 .song-title:hover {
